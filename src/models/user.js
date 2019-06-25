@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema(
     {
         email: String,
         password: String,
+        createdAt: { type: Date, required: true, default: Date.now },
     },
     {
         collection: 'User',
@@ -16,4 +17,12 @@ userSchema.methods.toJSON = function userToJSON() {
         password: this.password,
     };
 };
-export default mongoose.model('User', userSchema);
+let model = null;
+if (!mongoose.models['User']) {
+    model =  mongoose.model('User', userSchema);
+}
+else {
+    model =  mongoose.model('User');
+}
+
+export default model;
