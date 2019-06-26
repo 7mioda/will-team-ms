@@ -1,5 +1,5 @@
 import Client from '../models/Client';
-import User from '../models/User';
+import User from '../models/user';
 
 export const addClient = async (request, response) => {
     try {

@@ -1,5 +1,5 @@
 import Banker from '../models/Banker';
-import User from '../models/User';
+import User from '../models/user';
 
 export const addBanker = async (request, response) => {
     try {
