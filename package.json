@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "gulp build",
     "dev": "nodemon --exec babel-node -- src/server.js",
-    "start": "nodemon --exec babel-node -- src/server.js",
+    "start": "node dist/server.js",
     "lint:eslint": "./node_modules/.bin/eslint \"./src/**/*.js\"",
     "format:all": "prettier --write ./src/**/*.js"
   },
@@ -28,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "babel-polyfill": "7.0.0-beta.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
@@ -43,13 +45,18 @@
     "shortid": "^2.2.14"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-es2015-spread": "^6.22.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
     "nodemon": "^1.18.4",
