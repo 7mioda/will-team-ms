@@ -5,7 +5,7 @@ import {
     deleteLoan,
     getAllLoans,
     getLoan,
-} from '../controllers/loans';
+} from '../controllers/Loans';
 
 const router = express.Router();
 
