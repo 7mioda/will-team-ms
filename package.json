@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node -- src/server.js",
+    "start": "nodemon --exec babel-node -- src/server.js",
     "lint:eslint": "./node_modules/.bin/eslint \"./src/**/*.js\"",
     "format:all": "prettier --write ./src/**/*.js"
   },
