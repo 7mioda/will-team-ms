@@ -24,21 +24,21 @@ var _users = require("./routes/users");
 
 var _users2 = _interopRequireDefault(_users);
 
-var _loans = require("./routes/loans");
+var _Loans = require("./routes/Loans");
 
-var _loans2 = _interopRequireDefault(_loans);
+var _Loans2 = _interopRequireDefault(_Loans);
 
-var _bankers = require("./routes/bankers");
+var _Bankers = require("./routes/Bankers");
 
-var _bankers2 = _interopRequireDefault(_bankers);
+var _Bankers2 = _interopRequireDefault(_Bankers);
 
 var _Clients = require("./routes/Clients");
 
 var _Clients2 = _interopRequireDefault(_Clients);
 
-var _loanContracts = require("./routes/loanContracts");
+var _LoanContracts = require("./routes/LoanContracts");
 
-var _loanContracts2 = _interopRequireDefault(_loanContracts);
+var _LoanContracts2 = _interopRequireDefault(_LoanContracts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -54,8 +54,8 @@ app.use(_bodyParser2["default"].urlencoded({
 })); // Setting Routes
 
 app.use('/api/users', _users2["default"]);
-app.use('/api/loans', _loans2["default"]);
-app.use('/api/bankers', _bankers2["default"]);
+app.use('/api/loans', _Loans2["default"]);
+app.use('/api/bankers', _Bankers2["default"]);
 app.use('/api/clients', _Clients2["default"]);
-app.use('/api/loan-contracts', _loanContracts2["default"]);
+app.use('/api/loan-contracts', _LoanContracts2["default"]);
 exports["default"] = app;

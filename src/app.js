@@ -4,10 +4,10 @@ import cors from 'cors';
 import logger from 'morgan';
 
 import usersRouter from './routes/users';
-import loansRouter from './routes/loans';
-import bankersRouter from './routes/bankers';
+import loansRouter from './routes/Loans';
+import bankersRouter from './routes/Bankers';
 import clientsRouter from './routes/Clients';
-import loanContractsRouter from './routes/loanContracts';
+import loanContractsRouter from './routes/LoanContracts';
 
 
 const app = new Express();
