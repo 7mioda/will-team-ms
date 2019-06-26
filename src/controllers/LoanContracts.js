@@ -1,4 +1,4 @@
-import LoanContract from '../models/LoanContract';
+import LoanContract from '../models/loanContract';
 
 export const addLoanContract = async (request, response) => {
     try {
