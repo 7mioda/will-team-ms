@@ -6,7 +6,6 @@ export const addBanker = async (request, response) => {
         const { body: { email, password, registrationNumber, type },  file: { url: photo } } = request;
         const user = User({ email, password });
         const  { _id } = await user.save();
-        console.log(registrationNumber, type, email, password);
         const banker = Banker({
             user: _id,
             registrationNumber,

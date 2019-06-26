@@ -19,6 +19,7 @@ const database = async () => {
         await mongoose.connect(process.env.MONGO_URI, {
             useCreateIndex: true,
             useNewUrlParser: true,
+            writeConcern: 1,
         });
     } catch (err) {
         return err;

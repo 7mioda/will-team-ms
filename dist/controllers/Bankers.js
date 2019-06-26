@@ -43,36 +43,35 @@ exports.addBanker = function () {
           case 5:
             _ref2 = _context.sent;
             _id = _ref2._id;
-            console.log(registrationNumber, type, email, password);
             banker = (0, _Banker2["default"])({
               user: _id,
               registrationNumber: registrationNumber,
               type: type,
               photo: photo
             });
-            _context.next = 11;
+            _context.next = 10;
             return banker.save();
 
-          case 11:
+          case 10:
             response.json({
               status: 200,
               banker: banker
             });
-            _context.next = 18;
+            _context.next = 17;
             break;
 
-          case 14:
-            _context.prev = 14;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context["catch"](0);
             console.log("Failed to insert Banker: ".concat(_context.t0));
             response.sendStatus(500);
 
-          case 18:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 14]]);
+    }, _callee, null, [[0, 13]]);
   }));
 
   return function addBanker(_x, _x2) {

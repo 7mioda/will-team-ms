@@ -45,7 +45,8 @@ function () {
             _context.next = 4;
             return _mongoose2["default"].connect(process.env.MONGO_URI, {
               useCreateIndex: true,
-              useNewUrlParser: true
+              useNewUrlParser: true,
+              writeConcern: 1
             });
 
           case 4:
