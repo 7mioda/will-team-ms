@@ -4,10 +4,10 @@ const loanContractSchema = new mongoose.Schema(
     {
         interestRate: Number,
         client: { type: mongoose.Schema.Types.ObjectId, ref: 'Client' },
-        banker: { type: mongoose.Schema.Types.ObjectId, ref: 'Banker' },
         loan: { type: mongoose.Schema.Types.ObjectId, ref: 'Loan' },
         files: [ String ],
         amount: Number,
+        status: { type: String, enum: ['proposal', 'approved', 'declined', 'archived'], default: 'proposal' },
         createdAt: { type: Date, required: true, default: Date.now },
     },
     {
@@ -18,10 +18,11 @@ loanContractSchema.methods.toJSON = function userToJSON() {
     return {
         id: this._id,
         client: this.client,
-        banker: this.banker,
         loan: this.loan,
         amount: this.amount,
         files: this.files,
+        status: this.status,
+        createdAt: this.createdAt
     };
 };
 export default mongoose.model('LoanContract', loanContractSchema);

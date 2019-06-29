@@ -1,10 +1,12 @@
 import Banker from '../models/Banker';
 import User from '../models/user';
+import bcrypt from "bcryptjs";
 
 export const addBanker = async (request, response) => {
     try {
         const { body: { email, password, registrationNumber, type },  file: { url: photo } } = request;
-        const user = User({ email, password });
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = User({ email, password: hashedPassword, role: 'banker' });
         const  { _id } = await user.save();
         const banker = Banker({
             user: _id,

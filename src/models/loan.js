@@ -6,6 +6,7 @@ const loanSchema = new mongoose.Schema(
         description: String,
         interestRate: Number,
         loanPapers: String,
+        banner: String,
         createdAt: { type: Date, required: true, default: Date.now },
     },
     {
@@ -19,6 +20,8 @@ loanSchema.methods.toJSON = function userToJSON() {
         description: this.description,
         interestRate: this.interestRate,
         loanPapers: this.loanPapers,
+        banner: this.banner,
+        createdAt: this.createdAt
     };
 };
 export default mongoose.model('Loan', loanSchema);

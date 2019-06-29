@@ -1,7 +1,6 @@
 import http from 'http';
 import dotenv from 'dotenv';
 import { log } from './utils/logger';
-import 'babel-polyfill';
 
 import app from './app';
 import database from './models/database';

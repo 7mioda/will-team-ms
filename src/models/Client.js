@@ -8,6 +8,7 @@ const ClientSchema = new mongoose.Schema(
         lastName: String,
         birthDate: Date,
         photo: String,
+        createdAt: { type: Date, required: true, default: Date.now },
     },
     {
         collection: 'Client',
@@ -18,9 +19,11 @@ ClientSchema.methods.toJSON = function clientToJSON() {
         id: this._id,
         user: this.user,
         cin: this.cin,
-        loan: this.loan,
-        amount: this.amount,
-        files: this.files,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        birthDate: this.birthDate,
+        photo: this.photo,
+        createdAt: this.createdAt
     };
 };
 export default mongoose.model('Client', ClientSchema);

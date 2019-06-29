@@ -1,6 +1,8 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/user';
+import Banker from '../models/Banker';
+import Client from '../models/Client';
 
 export const register = async (request, response) => {
     try {
@@ -53,11 +55,14 @@ export const logIn = async (request, response) => {
                     expiresIn: 604800, // une semaine
                 },
             );
+            const authenticatedUser = user.role === 'user' ? await Client.findOne({ user: user.id }) : await Banker.findOne({ user: user.id });
             response.json({
                 status: 200,
                 success: true,
                 token: `JWT ${token}`,
                 refreshToken,
+                role: user.role,
+                user: authenticatedUser
             });
         } else {
             response.sendStatus(401);

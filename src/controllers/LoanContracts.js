@@ -22,7 +22,7 @@ export const updateLoanContract = async (request, response) => {
         const { body } = request;
         const loanContract = await LoanContract.findByIdAndUpdate(body.id, body, {
             new: true,
-        }).lean();
+        });
         response.json({
             loanContract,
         });
@@ -47,7 +47,7 @@ export const deleteLoanContract = async (request, response) => {
 
 export const getAllLoanContracts = async (request, response) => {
     try {
-        const loanContracts = await LoanContract.find();
+        const loanContracts = await LoanContract.find().populate('client').populate('loan');
         response.json({
             status: 200,
             loanContracts,

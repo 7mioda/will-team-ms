@@ -2,8 +2,8 @@ import Loan from '../models/loan';
 
 export const addLoan = async (request, response) => {
     try {
-        const { body } = request;
-        const loan = Loan(body);
+        const { body,  file: { url: photo } } = request;
+        const loan = Loan(Object.assign({},body, { banner: photo }));
         await loan.save();
         response.json({
             status: 200,
