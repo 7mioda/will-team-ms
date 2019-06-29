@@ -22,7 +22,7 @@ export const updateLoanContract = async (request, response) => {
         const { body } = request;
         const loanContract = await LoanContract.findByIdAndUpdate(body.id, body, {
             new: true,
-        });
+        }).populate('client').populate('loan');
         response.json({
             loanContract,
         });
