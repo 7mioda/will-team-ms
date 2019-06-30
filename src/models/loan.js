@@ -5,6 +5,7 @@ const loanSchema = new mongoose.Schema(
         name: String,
         description: String,
         interestRate: Number,
+        duration: Number,
         loanPapers: String,
         banner: String,
         createdAt: { type: Date, required: true, default: Date.now },

@@ -7,6 +7,7 @@ const loanContractSchema = new mongoose.Schema(
         loan: { type: mongoose.Schema.Types.ObjectId, ref: 'Loan' },
         files: [ String ],
         amount: Number,
+        duration: Number,
         status: { type: String, enum: ['proposal', 'approved', 'declined', 'archived'], default: 'proposal' },
         createdAt: { type: Date, required: true, default: Date.now },
     },
@@ -22,6 +23,7 @@ loanContractSchema.methods.toJSON = function userToJSON() {
         amount: this.amount,
         files: this.files,
         status: this.status,
+        duration: this.duration,
         createdAt: this.createdAt
     };
 };

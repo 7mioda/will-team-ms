@@ -6,6 +6,7 @@ const ClientSchema = new mongoose.Schema(
         cin: Number,
         firstName: String,
         lastName: String,
+        numTel: Number,
         birthDate: Date,
         photo: String,
         createdAt: { type: Date, required: true, default: Date.now },
@@ -23,6 +24,7 @@ ClientSchema.methods.toJSON = function clientToJSON() {
         lastName: this.lastName,
         birthDate: this.birthDate,
         photo: this.photo,
+        numTel: this.numTel,
         createdAt: this.createdAt
     };
 };
