@@ -8,7 +8,7 @@ const loanContractSchema = new mongoose.Schema(
         files: [ String ],
         amount: Number,
         duration: Number,
-        status: { type: String, enum: ['proposal', 'approved', 'declined', 'archived'], default: 'proposal' },
+        status: { type: String, enum: ['proposal', 'approved', 'verified', 'declined', 'archived'], default: 'proposal' },
         createdAt: { type: Date, required: true, default: Date.now },
     },
     {

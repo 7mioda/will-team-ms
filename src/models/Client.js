@@ -9,6 +9,7 @@ const ClientSchema = new mongoose.Schema(
         numTel: Number,
         birthDate: Date,
         photo: String,
+        type: { type: String, enum: ['user'], default: 'user' },
         createdAt: { type: Date, required: true, default: Date.now },
     },
     {

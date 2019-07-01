@@ -7,9 +7,10 @@ export const addLoanContract = async (request, response) => {
         const loanContractData = Object.assign({}, body, { files: toPersistFiles });
         const loanContract = LoanContract(loanContractData);
         await loanContract.save();
+        const populatedLoan = await LoanContract.findById(loanContract._id).populate('client').populate('loan');
         response.json({
             status: 200,
-            loanContract,
+            loanContract: populatedLoan,
         });
     } catch (err) {
         console.log(`Failed to insert LoanContract: ${err}`);

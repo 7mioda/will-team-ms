@@ -8,7 +8,7 @@ const BankerSchema = new mongoose.Schema(
         firstName: String,
         lastName: String,
         birthDate: Date,
-        type: { type: String, enum: ['banker', 'director'] },
+        type: { type: String, enum: ['banker', 'director'], default: 'banker' },
         photo: String,
         createdAt: { type: Date, required: true, default: Date.now },
     },

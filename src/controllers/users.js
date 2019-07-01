@@ -61,7 +61,7 @@ export const logIn = async (request, response) => {
                 success: true,
                 token: `JWT ${token}`,
                 refreshToken,
-                role: user.role,
+                role: authenticatedUser.type,
                 user: authenticatedUser
             });
         } else {
